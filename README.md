@@ -127,7 +127,8 @@ if: always()
 
 * GitHub Actions Toolkit https://github.com/actions/toolkit
 * GitHub Actions Starter Workflows https://github.com/actions/starter-workflows
+* Github Hello World Javascript Action https://github.com/actions/hello-world-javascript-action
 * Webhook-Discord https://github.com/jb3/webhook-discord
 
 # License
-Copyright (c) 2020 Filip Leiner. Available under the MIT License.
+Copyright (c) 2020 Vely Digital. Available under the MIT License.

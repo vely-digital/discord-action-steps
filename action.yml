@@ -1,5 +1,5 @@
 name: 'github-action-discord'
-description: 'Greet someone and record the time'
+description: 'Write GitHub actions and jobs to Discord'
 author: 'vely-digital'
 inputs:
   status:
