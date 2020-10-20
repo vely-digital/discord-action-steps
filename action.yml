@@ -1,0 +1,14 @@
+name: 'github-action-discord'
+description: 'Greet someone and record the time'
+author: 'vely-digital'
+inputs:
+  status:
+    description: Specify success, failure, cancelled or a custom status.
+    required: true
+  steps:
+    description: Report on the status of individual steps
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
+

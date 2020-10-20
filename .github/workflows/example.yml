@@ -1,0 +1,31 @@
+name: Licensed
+
+on:
+  push: {branches: main}
+  pull_request: {branches: main}
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    env:
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+    name: A job to say hello
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Hello world action step
+        uses: ./ # Uses an action in the root directory
+        id: hello
+        with:
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+
+      - name: Hello world action step
+        uses: ./ # Uses an action in the root directory
+        id: hello2
+        with:
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+
