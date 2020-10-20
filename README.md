@@ -1,4 +1,4 @@
-# Discord messages for GitHub Actions with info about workflow,jobs, commit, changes
+# Discord messages for GitHub Actions with info about workflow, jobs,  commit, changes
 
 
 <img src="./docs/images/example-success.png" width="400" title="Slack Example #1">
@@ -6,6 +6,52 @@
 ## TLDR
 Full Example of picture seen.
 
+```yaml
+name: example
+
+on:
+  push: {branches: main}
+  pull_request: {branches: main}
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    env:
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+    name: Example job
+    steps:
+      - name: os-setup
+        uses: vely-digital/discord-action-steps
+ 
+        id: os-setup
+        with:
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+        if: always()
+
+      - name: Checkout
+        id: start-setup
+        uses: actions/checkout@v2
+      
+      - name: docker-setup
+        id: docker-setup
+        run: echo 'docker-setup'
+        
+      - name: swarm-update
+        id: swarm-update
+        run: echo 'swarm-update'
+
+      - name: exit-example
+        uses: vely-digital/discord-action-steps 
+        id: exit-example
+        with:
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+        if: always()
+
+```
+
+# Documentation
 
 ## *Enviroment Context*
 
