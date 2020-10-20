@@ -1,4 +1,4 @@
-name: Licensed
+name: example
 
 on:
   push: {branches: main}
@@ -9,23 +9,33 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-    name: A job to say hello
+    name: Example job
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
+      - name: os-setup
+        uses: vely-digital/discord-action-steps
+ 
+        id: os-setup
+        with:
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+        if: always()
+
       - name: Checkout
+        id: start-setup
         uses: actions/checkout@v2
-      - name: Hello world action step
-        uses: ./ # Uses an action in the root directory
-        id: hello
+      
+      - name: docker-setup
+        id: docker-setup
+        run: echo 'docker-setup'
+        
+      - name: swarm-update
+        id: swarm-update
+        run: echo 'swarm-update'
+
+      - name: exit-example
+        uses: vely-digital/discord-action-steps 
+        id: exit-example
         with:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
-
-      - name: Hello world action step
-        uses: ./ # Uses an action in the root directory
-        id: hello2
-        with:
-          status: ${{ job.status }}
-          steps: ${{ toJson(steps) }}
-
+        if: always()
