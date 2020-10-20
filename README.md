@@ -103,6 +103,10 @@ with:
 You can use GitHub actions check functions to ensure you send message about build in all job statuses.
 
 ```yaml
+if: always()
+```
+
+```yaml
 - name: example
   uses: vely-digital/discord-action-steps
   id: example
@@ -117,7 +121,7 @@ You can use GitHub actions check functions to ensure you send message about buil
 * `cancelled()`
 * `failure()`
 
-[Github documentation](https://docs.github.com/en/free-pro-team@latest/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)
+[Github Documentation](https://docs.github.com/en/free-pro-team@latest/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)
 
 # Resources
 
