@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: os-setup
-        uses: vely-digital/discord-action-steps
+        uses: vely-digital/discord-action-steps@v1
         id: os-setup
         with:
           status: ${{ job.status }}
@@ -32,7 +32,7 @@ jobs:
         run: echo 'swarm-update'
 
       - name: exit-example
-        uses: vely-digital/discord-action-steps 
+        uses: vely-digital/discord-action-steps@v1
         id: exit-example
         with:
           status: ${{ job.status }}
