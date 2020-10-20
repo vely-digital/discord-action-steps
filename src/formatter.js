@@ -37,7 +37,6 @@ const fieldGenerator = (fieldRows) => {
       field += c.name + " - " + c.linkName + "\n";
     }
   });
-  console.log(field);
   return field;
 };
 

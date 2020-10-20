@@ -10,14 +10,11 @@ const fieldGenerator = (fieldRows) => {
       field += c.name + " - " + c.linkName + "\n";
     }
   });
-  console.log(field);
   return field;
 };
 
 const sendDiscord = async (url, actionObject) => {
   const Hook = new webhook.Webhook(url);
-
-  console.log(actionObject);
 
   const msg = new webhook.MessageBuilder()
     .setAvatar(actionObject.avatar_url)

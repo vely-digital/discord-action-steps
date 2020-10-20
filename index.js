@@ -15,9 +15,6 @@ const run = async () => {
 
     const discordUrl = process.env.DISCORD_WEBHOOK_URL;
 
-    console.log("actionName", actionName);
-    console.log("discordUrl", discordUrl);
-
     const actionObject = generateObject(
       context,
       actionStatus,
