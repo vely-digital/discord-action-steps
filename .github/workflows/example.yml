@@ -11,19 +11,18 @@ jobs:
       DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
     name: Example job
     steps:
+      - name: Checkout
+        id: start-setup
+        uses: actions/checkout@v2
+
       - name: os-setup
         uses: vely-digital/discord-action-steps
- 
         id: os-setup
         with:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
         if: always()
 
-      - name: Checkout
-        id: start-setup
-        uses: actions/checkout@v2
-      
       - name: docker-setup
         id: docker-setup
         run: echo 'docker-setup'
