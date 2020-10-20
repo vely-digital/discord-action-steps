@@ -56,7 +56,7 @@ jobs:
 
 `DISCORD_WEBHOOK_URL` (required)
 
-Create discord webhook and copy it inside of github actions. After that place secret ID inside enviroment table (see below). \n
+Create discord webhook and copy it inside of github actions. After that place secret ID inside enviroment table (see below). 
 
 
 ```yaml
@@ -87,7 +87,7 @@ with:
   steps: ${{ toJson(steps) }}
 ```
 
-**IMPORTANT!!!** For steps to show up in message. Every one needs to have ID see example below. Id name will be shown as name in message.
+**IMPORTANT!!!** For steps to show up in message, everyone needs to have ID (see example below). Id name will be shown as name in message.
 
 ```yaml
 - name: example
@@ -101,6 +101,16 @@ with:
 ## Job status check functions
 
 You can use GitHub actions check functions to ensure you send message about build in all job statuses.
+
+```yaml
+- name: example
+  uses: vely-digital/discord-action-steps
+  id: example
+  with:
+    status: ${{ job.status }}
+    steps: ${{ toJson(steps) }}
+  if: always()
+```
 
 * `success()` (default)
 * `always()`
